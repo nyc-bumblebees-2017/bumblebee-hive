@@ -1,4 +1,11 @@
 <h1>Create a new bee</h1>
+<% if @errors %>
+	<ul>
+	<% @errors.each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+	</ul>
+<% end %>
 <form action="/bumblebees" method="post">
 	<input type="text" name="name" placeholder="Name here">
 	<input type="text" name="job" placeholder="Job here">

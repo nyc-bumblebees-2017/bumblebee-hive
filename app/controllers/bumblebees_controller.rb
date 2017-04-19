@@ -8,6 +8,12 @@ get '/bumblebees/new' do
 end
 
 post '/bumblebees' do
-  Bumblebee.create(name: params[:name], job: params[:job])
-  redirect '/bumblebees'
+  bumblebee = Bumblebee.new(name: params[:name], job: params[:job])
+  if bumblebee.save
+    redirect '/bumblebees'
+  else
+    status 400
+    @errors = bumblebee.errors.full_messages
+    erb :'/bumblebees/new'
+  end
 end
