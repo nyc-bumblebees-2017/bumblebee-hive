@@ -8,7 +8,7 @@ get '/bumblebees/new' do
 end
 
 post '/bumblebees' do
-  bumblebee = Bumblebee.new(name: params[:name], job: params[:job])
+  bumblebee = Bumblebee.new(params[:bumblebee])
   if bumblebee.save
     redirect '/bumblebees'
   else
