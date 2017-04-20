@@ -10,6 +10,7 @@ end
 post '/bumblebees' do
   bumblebee = Bumblebee.new(params[:bumblebee])
   if bumblebee.save
+    session[:bumblebee_id] = bumblebee.id
     redirect '/bumblebees'
   else
     status 400

@@ -3,10 +3,11 @@ class Bumblebee < ActiveRecord::Base
   validates :job, presence: true
 
   def password
-    BCrypt::Password.new(password_hash)
+    @password ||= BCrypt::Password.new(password_hash)
   end
 
-  def password=(password)
-    self.password_hash = BCrypt::Password.create(password)
+  def password=(new_password)
+    @password = BCrypt::Password.create(new_password)
+    self.password_hash = @password
   end
 end

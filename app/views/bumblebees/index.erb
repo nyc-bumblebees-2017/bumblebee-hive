@@ -1,5 +1,8 @@
 <a href="/bumblebees/new">Create New Bee</a>
 
+<% if current_bumblebee %>
+<h1>Hello, <%= current_bumblebee.name %></h1>
+<% end %>
 <h1>Here are the bumblebees!</h1>
 <ul>
 <% @bumblebees.each do |bumblebee| %>
