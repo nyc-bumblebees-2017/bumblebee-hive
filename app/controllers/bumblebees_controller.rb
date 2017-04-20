@@ -1,4 +1,5 @@
 get '/bumblebees' do
+  require_bumblebee
   @bumblebees = Bumblebee.all
   erb :'/bumblebees/index'
 end
